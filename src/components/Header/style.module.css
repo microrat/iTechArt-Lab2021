@@ -1,0 +1,39 @@
+.nav {
+  margin-top: 30px;
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 35avx 100px 0;
+}
+
+.nav__title {
+  margin-left: 30px;
+  font-size: 200%;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 800;
+}
+
+.nav__list {
+  display: flex;
+  list-style: none;
+}
+
+.nav__item {
+  margin: 0 15px;
+}
+
+.nav__item:last-child {
+  margin-right: 30px;
+}
+
+.nav__link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.nav__link:hover {
+  color: indianred;
+}
