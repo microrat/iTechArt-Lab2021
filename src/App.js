@@ -54,18 +54,16 @@ class App extends React.Component {
     cart: [],
     userList: [
       {
-        id: 1,
         name: "Eric",
         surname: "Cartman",
         email: "cartman@gmail.com",
-        address: "Беларусь, Витебск, Московский просп., 19, корп. 1",
+        address: "Московский просп., 19, корп. 1",
       },
       {
-        id: 2,
         name: "Kyle",
         surname: "Broflovski",
         email: "broflovski@gmail.com",
-        address: "Беларусь, Витебск, Московский просп., 19, корп. 1",
+        address: "Московский просп., 19, корп. 1",
       },
     ],
   };
@@ -88,9 +86,8 @@ class App extends React.Component {
     this.setState({ cart: reducedCart });
   };
 
-  deleteUser=(user)=> {
-    const reducedUserList = [...this.state.userList];
-    reducedUserList.splice(user, 1);
+  deleteUser=(userEmail)=> {
+    const reducedUserList =this.state.userList.filter(value=>value.email!==userEmail);
     this.setState({ userList: reducedUserList });
   }
 
@@ -98,9 +95,9 @@ class App extends React.Component {
     this.setState((state) => ({ userList: [...state.userList, newUser] }));
   };
 
-  editUser(user) {
+  editUser=(user, userOld)=> {
     const editedUserList = [...this.state.userList];
-    const index = editedUserList.indexOf(user);
+    const index = editedUserList.indexOf(userOld);
     editedUserList[index] = user;
     this.setState({ userList: editedUserList });
   }
