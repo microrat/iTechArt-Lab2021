@@ -19,15 +19,15 @@
   background-color: rgba(92, 30, 30, 0.342);
 }
 
-.cart_table tr,
-td {
+.cart_table_tr,
+.cart_table_td {
   width: 300px;
   padding: 20px;
   border: 2px solid;
 }
 
 .table__head {
-  background-color:rgba(119, 48, 48, 0.993);
+  background-color: rgba(119, 48, 48, 0.993);
 }
 
 .del_button {
