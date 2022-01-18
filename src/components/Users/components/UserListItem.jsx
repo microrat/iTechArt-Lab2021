@@ -45,11 +45,11 @@ class UserListItem extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.editUser}>
+      <form onSubmit={this.editUser} className={s.admin__table__form}>
        <input type="text" className={s.admin__table__cell_input} value={this.state.name} onChange={this.handleName} />
         <input type="text" className={s.admin__table__cell_input} value={this.state.surname} onChange={this.handleSurname} />
         <input type="text" className={s.admin__table__cell_input} value={this.state.email} onChange={this.handleEmail}/>
-        <input type="text" className={s.admin__table__cell_input} value={this.state.address} onChange={this.handleAddress}/>   
+        <input type="text" className={`${s.admin__table__cell_input} ${s.address}`} value={this.state.address} onChange={this.handleAddress}/>   
           <button type="submit">Изменить</button>
           <button onClick={this.deleteUser}>Удалить</button>
         </form>

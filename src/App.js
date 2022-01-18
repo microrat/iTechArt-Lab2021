@@ -1,6 +1,4 @@
 import "./App.css";
-import HeaderPic from "./components/HeaderPic/HeaderPic.jsx";
-import Menu from "./components/Menu/Menu.jsx";
 import Header from "./components/Header/Header.jsx";
 import PizzaCard from "./components/PizzaCard/PizzaCard.jsx";
 import AddForm from "./components/AddForm/AddForm.jsx";
@@ -10,6 +8,7 @@ import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import React from "react";
 import Login from "./components/Authorization/Login";
 import Registration from "./components/Authorization/Registration";
+import Home from "./components/Home/Home";
 
 class App extends React.Component {
   constructor(props) {
@@ -86,31 +85,33 @@ class App extends React.Component {
     this.setState({ cart: reducedCart });
   };
 
-  deleteUser=(userEmail)=> {
-    const reducedUserList =this.state.userList.filter(value=>value.email!==userEmail);
+  deleteUser = (userEmail) => {
+    const reducedUserList = this.state.userList.filter(
+      (value) => value.email !== userEmail
+    );
     this.setState({ userList: reducedUserList });
-  }
+  };
 
   addUser = (newUser) => {
     this.setState((state) => ({ userList: [...state.userList, newUser] }));
   };
 
-  editUser=(user, userOld)=> {
+  editUser = (user, userOld) => {
     const editedUserList = [...this.state.userList];
     const index = editedUserList.indexOf(userOld);
     editedUserList[index] = user;
     this.setState({ userList: editedUserList });
-  }
+  };
 
   render() {
     return (
       <Router>
         <Header />
         <Routes>
-          <Route path="/" element={<HeaderPic />} />
-          <Route path="/menu" element={<Menu pizzas={this.state.pizzas} />} />
+          <Route path="/" element={<Home pizzas={this.state.pizzas} />} />
+
           <Route
-            path="/menu/:id"
+            path="/:id"
             element={
               <PizzaCard
                 pizzas={this.state.pizzas}
@@ -144,8 +145,8 @@ class App extends React.Component {
               />
             }
           />
-           <Route path="/login" element={<Login />} />
-           <Route path="/registration" element={<Registration />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/registration" element={<Registration />} />
         </Routes>
       </Router>
     );

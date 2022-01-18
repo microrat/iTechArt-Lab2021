@@ -10,6 +10,8 @@ const PizzaCard = (props) => {
   let addToCart = () => {
     let cartitem = props.pizzas[id];
     cartitem.currentSize = size;
+    cartitem.uniqueId=props.cart.length+1;
+    console.log(cartitem);
     props.addToCart(cartitem);
     alert("добавлено в корзину");
   };
@@ -34,7 +36,7 @@ const PizzaCard = (props) => {
               onChange={handleChange}
               name="size"
             />
-            <label for="sm">
+            <label>
               Маленькая - {props.pizzas[id].size.sm.price} руб.
             </label>
             <input
@@ -44,7 +46,7 @@ const PizzaCard = (props) => {
               onChange={handleChange}
               name="size"
             />
-            <label for="md">
+            <label>
               Средняя - {props.pizzas[id].size.md.price} руб.
             </label>
             <input
@@ -54,11 +56,11 @@ const PizzaCard = (props) => {
               onChange={handleChange}
               name="size"
             />
-            <label for="lg">
+            <label>
               Большая - {props.pizzas[id].size.lg.price} руб.
             </label>
           </form>
-          <button class={s.card__button} onClick={addToCart}>
+          <button className={s.card__button} onClick={addToCart}>
             Добавить в корзину
           </button>
         </div>

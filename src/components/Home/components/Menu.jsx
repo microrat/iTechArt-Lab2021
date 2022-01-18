@@ -1,8 +1,8 @@
 
 import React from "react";
 import { NavLink } from "react-router-dom";
-import MenuItem from "./components/MenuItem.jsx";
-import s from './style.module.css';
+import MenuItem from "./MenuItem.jsx";
+import s from '../style.module.css';
 
 class Menu extends React.Component{
   render(){
@@ -12,7 +12,7 @@ class Menu extends React.Component{
       <h1 className={s.slogan__title_3}>Наше меню</h1>
     </section>
     <div className={s.menu}>
-     {this.props.pizzas.map((item)=>(<MenuItem pizza={item}/>))}
+     {this.props.pizzas.map((item)=>(<MenuItem key={item.id} pizza={item}/>))}
     </div>
     <div className={s.add}>
     <NavLink className="button" to="/add">Добавить пиццу</NavLink>

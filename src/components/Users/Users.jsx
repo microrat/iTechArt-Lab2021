@@ -40,9 +40,11 @@ class Users extends React.Component {
 
   render() {
     return (
+      <div className="container">
       <div className={s.admin__container}>
         {this.props.userList.map((user) => (
           <UserListItem
+            key={user.email}
             user={user}
             deleteUser={this.props.deleteUser}
             editUser={this.props.editUser}
@@ -88,6 +90,7 @@ class Users extends React.Component {
           </label>
           <input type="submit" value="Добавить" />
         </form>
+      </div>
       </div>
     );
   }

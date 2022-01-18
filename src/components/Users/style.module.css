@@ -1,41 +1,31 @@
 .admin__container {
   position: absolute;
   margin-top: 100px;
-}
-
-.admin__table {
- display:flex;
- flex-direction: column;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.admin__table__head {
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.admin__table__cell {
-  
-  padding: 7px;
-  border: 2px solid #fff;
-}
-
-.admin__table__form {
-  color: black;
-  background-color: rgba(255, 255, 255, 0.603);
+  background-color: rgba(0, 0, 0, 0.753);
   padding: 15px;
-  border: 2px solid #fff;
 }
+
 .admin__table__form_input{
     margin:5px;
 }
 
+
 .admin__table__cell_input{
-  width:100%;
 	border: 0;
 	box-sizing: border-box;
 	height: 100%;
 	outline: 0;
   padding: 5px;
   margin: 5px;
-	width: 100%;
+}
+
+.address{
+width:500px;
+}
+
+.admin__table__head{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
 }

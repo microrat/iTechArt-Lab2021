@@ -58,3 +58,26 @@
     align-items: center;
     flex-direction: column;
   }
+
+  .headerpic {
+    justify-content: center;
+    min-height: 100vh;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 100px;
+  }
+  
+  .headerpic__title_1 {
+    padding: 10px;
+    font: bold 60px "Open Sans", sans-serif;
+    margin-bottom: 10px;
+  }
+  
+  .headerpic__title_3 {
+    padding: 10px;
+    font: normal 28px "Open Sans", sans-serif;
+    margin-bottom: 40px;
+  }
+  

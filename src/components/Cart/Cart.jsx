@@ -3,6 +3,7 @@ import CartItem from './components/CartItem.jsx'
 
 const Cart = (props) => {
   let clearCart = () => {
+    console.log(props.cart);
     props.clearCart();
   };
   return (
@@ -15,7 +16,7 @@ const Cart = (props) => {
           <td className={s.cart_table_td}>Удалить</td>
         </tr>
         {props.cart.map((item) => (
-          <CartItem item={item} clearCartItem={props.clearCartItem}/>
+          <CartItem item={item} key={item.uniqueId} clearCartItem={props.clearCartItem}/>
         ))}
       </table>
       <div className={s.cart__price}>
