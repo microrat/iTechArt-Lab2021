@@ -1,0 +1,25 @@
+.profile__container {
+  position: absolute;
+  margin-top: 100px;
+  background-color: rgba(0, 0, 0, 0.753);
+  padding: 15px;
+}
+
+.profile_form{
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+}
+
+.profile__field {
+  border: 0;
+  box-sizing: border-box;
+  height: 100%;
+  outline: 0;
+  padding: 5px;
+  margin: 5px;
+}
+
+.address {
+  width: 500px;
+}

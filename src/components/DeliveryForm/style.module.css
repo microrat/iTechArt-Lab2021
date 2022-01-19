@@ -1,0 +1,13 @@
+.delivery__form{
+	background-color:rgba(0, 0, 0, 0.548);
+	display:flex;
+	flex-direction: column;
+	position: absolute;
+	margin-top: 100px;
+	padding:20px;
+	width:80%;
+}
+
+.delivery__form__item{
+margin:10px;
+}

@@ -10,6 +10,7 @@ class Users extends React.Component {
       surname: "",
       email: "",
       address: "",
+      password: "",
     };
 
     this.handleName = this.handleName.bind(this);
@@ -17,6 +18,7 @@ class Users extends React.Component {
     this.handleEmail = this.handleEmail.bind(this);
     this.handleAddress = this.handleAddress.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handlePassword = this.handlePassword.bind(this);
   }
 
   handleName(event) {
@@ -30,6 +32,10 @@ class Users extends React.Component {
   }
   handleAddress(event) {
     this.setState({ address: event.target.value });
+  }
+
+  handlePassword(event) {
+    this.setState({password: event.target.value } );
   }
 
   handleSubmit(event) {
@@ -81,6 +87,14 @@ class Users extends React.Component {
                 className={s.admin__table__form_input}
                 onChange={this.handleAddress}
                 value={this.state.address} />
+            </label>
+            <label>
+             пароль:
+              <input
+                type="text"
+                className={s.admin__table__form_input}
+                onChange={this.handlePassword}
+                value={this.state.password} />
             </label>
             <input type="submit" value="Добавить" />
           </form>

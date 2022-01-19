@@ -10,6 +10,7 @@ import Login from "./components/Authorization/Login";
 import Registration from "./components/Authorization/Registration";
 import Home from "./components/Home/Home";
 import Profile from "./components/Profile/Profile";
+import DeliveryForm from "./components/DeliveryForm/DeliveryForm";
 
 class App extends React.Component {
   constructor(props) {
@@ -67,6 +68,13 @@ class App extends React.Component {
         email: "broflovski@gmail.com",
         address: "Московский просп., 19, корп. 1",
         password: "kyle",
+      },
+      {
+        name: "TAEST",
+        surname: "USER",
+        email: "1",
+        address: "ADR",
+        password: "1",
       },
     ],
     currentUser: {},
@@ -126,6 +134,7 @@ class App extends React.Component {
           <Route path="/login" element={ <Login userList={this.state.userList} currentUser={this.state.currentUser}  setCurrentUser={this.setCurrentUser}/> }/>
           <Route path="/registration" element={ <Registration userList={this.state.userList} addUser={this.addUser} /> } />
           <Route path="/profile" element={<Profile currentUser={this.state.currentUser} editUser={this.editUser}/>} />
+          <Route path="/delivery" element={<DeliveryForm currentUser={this.state.currentUser} editUser={this.editUser} cart={this.state.cart}/>} />
         </Routes>
       </Router>
     );

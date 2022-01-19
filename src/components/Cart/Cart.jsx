@@ -1,5 +1,6 @@
 import s from "./style.module.css";
 import CartItem from "./components/CartItem.jsx";
+import { Link } from "react-router-dom";
 
 const Cart = (props) => {
   let clearCart = () => {
@@ -34,6 +35,7 @@ const Cart = (props) => {
       <button className="add_button" onClick={clearCart}>
         Очистить корзину
       </button>
+     <Link to="/delivery" className="add_button delivery_button">Оформить заказ</Link>
     </div>
   );
 };
