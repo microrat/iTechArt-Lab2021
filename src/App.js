@@ -9,6 +9,7 @@ import React from "react";
 import Login from "./components/Authorization/Login";
 import Registration from "./components/Authorization/Registration";
 import Home from "./components/Home/Home";
+import Profile from "./components/Profile/Profile";
 
 class App extends React.Component {
   constructor(props) {
@@ -16,7 +17,6 @@ class App extends React.Component {
     this.addToCart = this.addToCart.bind(this);
   }
   state = {
-    currentUser: {},
     pizzas: [
       {
         id: 1,
@@ -53,7 +53,6 @@ class App extends React.Component {
         },
       },
     ],
-    cart: [],
     userList: [
       {
         name: "Eric",
@@ -70,7 +69,13 @@ class App extends React.Component {
         password: "kyle",
       },
     ],
+    currentUser: {},
+    cart: [],
   };
+
+  setCurrentUser=(user)=>{
+    this.setState({currentUser:user});
+  }
 
   addPizza = (newPizza) => {
     this.setState((state) => ({ pizzas: [...state.pizzas, newPizza] }));
@@ -118,8 +123,9 @@ class App extends React.Component {
           <Route path="/add" element={<AddForm state={this.state} addPizza={this.addPizza} />} />
           <Route path="/cart" element={<Cart cart={this.state.cart} clearCart={this.clearCart} clearCartItem={this.clearCartItem}/> } />
           <Route path="/users" element={ <Users userList={this.state.userList} addUser={this.addUser} deleteUser={this.deleteUser} editUser={this.editUser} /> }/>
-          <Route path="/login" element={ <Login userList={this.state.userList} currentUser={this.state.currentUser} /> }/>
+          <Route path="/login" element={ <Login userList={this.state.userList} currentUser={this.state.currentUser}  setCurrentUser={this.setCurrentUser}/> }/>
           <Route path="/registration" element={ <Registration userList={this.state.userList} addUser={this.addUser} /> } />
+          <Route path="/profile" element={<Profile currentUser={this.state.currentUser} editUser={this.editUser}/>} />
         </Routes>
       </Router>
     );

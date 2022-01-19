@@ -32,6 +32,11 @@ const Header = () => {
             Регистрация
           </NavLink>
         </li>
+        <li className={s.nav__item}>
+          <NavLink className={s.nav__link} to="/profile">
+            Профиль
+          </NavLink>
+        </li>
       </ul>
     </nav>
   );

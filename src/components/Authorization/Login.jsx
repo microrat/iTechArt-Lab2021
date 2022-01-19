@@ -30,13 +30,13 @@ class Login extends React.Component {
     if (Object.keys(this.props.currentUser).length === 0) {
       let user = this.props.userList.find((user) => user.email === this.state.email );
       if (user.password === this.state.password) {
-        this.props.currentUser = user;
+        this.props.setCurrentUser(user);
       }
       else{alert("Неправлено введен пароль или имейл")}
     } else {
       alert("Вход уже был выполнен");
     }
-    alert(this.props.currentUser.email);
+    alert("ОК");
   }
 
   render() {
