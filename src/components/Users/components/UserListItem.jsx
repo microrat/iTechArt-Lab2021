@@ -3,7 +3,6 @@ import React from "react";
 
 class UserListItem extends React.Component {
   constructor(props) {
-    
     super(props);
     this.state={
       name: this.props.user.name,
@@ -53,7 +52,6 @@ class UserListItem extends React.Component {
           <button type="submit">Изменить</button>
           <button onClick={this.deleteUser}>Удалить</button>
         </form>
-     
     );
   }
 }

@@ -10,7 +10,7 @@ const PizzaCard = (props) => {
   let addToCart = () => {
     let cartitem = props.pizzas[id];
     cartitem.currentSize = size;
-    cartitem.uniqueId=props.cart.length+1;
+    cartitem.uniqueId = props.cart.length + 1;
     console.log(cartitem);
     props.addToCart(cartitem);
     alert("добавлено в корзину");
@@ -27,7 +27,6 @@ const PizzaCard = (props) => {
         <div className={s.card__item}>
           <h1 className={s.item__title}>{props.pizzas[id].name}</h1>
           <p className={s.item__descreption}>{props.pizzas[id].desc}</p>
-
           <form>
             <input
               type="radio"
@@ -36,9 +35,7 @@ const PizzaCard = (props) => {
               onChange={handleChange}
               name="size"
             />
-            <label>
-              Маленькая - {props.pizzas[id].size.sm.price} руб.
-            </label>
+            <label>Маленькая - {props.pizzas[id].size.sm.price} руб.</label>
             <input
               type="radio"
               value="md"
@@ -46,9 +43,7 @@ const PizzaCard = (props) => {
               onChange={handleChange}
               name="size"
             />
-            <label>
-              Средняя - {props.pizzas[id].size.md.price} руб.
-            </label>
+            <label>Средняя - {props.pizzas[id].size.md.price} руб.</label>
             <input
               type="radio"
               value="lg"
@@ -56,9 +51,7 @@ const PizzaCard = (props) => {
               onChange={handleChange}
               name="size"
             />
-            <label>
-              Большая - {props.pizzas[id].size.lg.price} руб.
-            </label>
+            <label>Большая - {props.pizzas[id].size.lg.price} руб.</label>
           </form>
           <button className={s.card__button} onClick={addToCart}>
             Добавить в корзину

@@ -8,8 +8,7 @@ class AddForm extends React.Component {
     this.state = {
       id:props.state.pizzas.length+1,
       name: "",
-      desc:
-        "",
+      desc: "",
       size: {
         sm: {
           price: "",
@@ -75,7 +74,7 @@ class AddForm extends React.Component {
           <input type="text" value={this.state.size.lg.price} onChange={this.handleLargeSize} />
         </label>
         <input type="submit" value="Отправить" className={s.form__button}/>
-       <Link to="/menu"className={s.form__button} > Назад</Link>
+       <Link to="/"className={s.form__button} > Назад</Link>
       </form>
       </div>
     );

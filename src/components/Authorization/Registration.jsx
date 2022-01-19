@@ -1,31 +1,114 @@
 import s from "./style.module.css";
 import React from "react";
 
-export default function Registration() {
-  return (
-    <div className="container">
-      <form className={`${s.form} ${s.form_registration}`}>
-        <h1>Добро пожаловать!</h1>
-        <h3>Введите данные для входа</h3>
-        <div className={s.form__input}>
-          <input id="name" className={s.form__input__field} type="text" placeholder="Имя" />
-        </div>
-        <div className={s.form__input}>
-          <input id="email" className={s.form__input__field} type="text" placeholder="Фамилия" />
-        </div>
-        <div className={s.form__input}>
-          <input id="email" className={s.form__input__field} type="text" placeholder="Email" />
-        </div>
-        <div className={s.form__input}>
-          <input id="email" className={s.form__input__field} type="text" placeholder="Адрес" />
-        </div>
-        <div className={s.form__input}>
-          <input id="email" className={s.form__input__field} type="text" placeholder="Пароль" />
-        </div>
-        <button type="submit" className={s.form__button}>
-        Зарегестрироваться
-        </button>
-      </form>
-    </div>
-  );
+class Registration extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "",
+      surname: "",
+      email: "",
+      address: "",
+      password: "",
+    };
+    this.handleName = this.handleName.bind(this);
+    this.handleSurname = this.handleSurname.bind(this);
+    this.handleEmail = this.handleEmail.bind(this);
+    this.handleAddress = this.handleAddress.bind(this);
+    this.handlePassword = this.handlePassword.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleName(event) {
+    this.setState({ name: event.target.value });
+  }
+  handleSurname(event) {
+    this.setState({ surname: event.target.value });
+  }
+  handleEmail(event) {
+    this.setState({ email: event.target.value });
+  }
+  handleAddress(event) {
+    this.setState({ address: event.target.value });
+  }
+
+  handlePassword(event) {
+    this.setState({ password: event.target.value });
+  }
+
+  handleSubmit(event) {
+    let allowed = 0;
+    event.preventDefault();
+    this.props.userList.filter((obj) => {
+      if (obj.email === this.state.email) {
+        alert("Этот email уже занят");
+        allowed = 0;
+        return false;
+      } else {
+        allowed = 1;
+        return true;
+      }
+    });
+    if (allowed === 1) {
+      this.props.addUser(this.state);
+      alert("Пользователь добавлен");
+    }
+    console.log(this.props.userList);
+  }
+
+  render() {
+    return (
+      <div className="container">
+        <form className={`${s.form} ${s.form_registration}`} onSubmit={this.handleSubmit} >
+          <h1>Добро пожаловать!</h1>
+          <h3>Введите данные для входа</h3>
+          <div className={s.form__input}>
+            <input
+              className={s.form__input__field}
+              type="text"
+              placeholder="Имя"
+              onChange={this.handleName}
+              value={this.state.name} />
+          </div>
+          <div className={s.form__input}>
+            <input
+              className={s.form__input__field}
+              type="text"
+              placeholder="Фамилия"
+              onChange={this.handleSurname}
+              value={this.state.surname} />
+          </div>
+          <div className={s.form__input}>
+            <input
+              className={s.form__input__field}
+              type="text"
+              placeholder="Email"
+              onChange={this.handleEmail}
+              value={this.state.email} />
+          </div>
+          <div className={s.form__input}>
+            <input
+              className={s.form__input__field}
+              type="text"
+              placeholder="Адрес"
+              onChange={this.handleAddress}
+              value={this.state.address} />
+          </div>
+          <div className={s.form__input}>
+            <input
+              className={s.form__input__field}
+              type="text"
+              placeholder="Пароль"
+              onChange={this.handlePassword}
+              value={this.state.password} />
+          </div>
+          <button type="submit" className={s.form__button}>
+            Зарегестрироваться
+          </button>
+        </form>
+      </div>
+    );
+  }
 }
+
+export default Registration;

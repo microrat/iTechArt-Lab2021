@@ -1,5 +1,5 @@
-import s from './style.module.css';
-import CartItem from './components/CartItem.jsx'
+import s from "./style.module.css";
+import CartItem from "./components/CartItem.jsx";
 
 const Cart = (props) => {
   let clearCart = () => {
@@ -9,15 +9,23 @@ const Cart = (props) => {
   return (
     <div className={s.cart}>
       <table className={s.cart__table}>
-        <tr className={s.table__head}>
-          <td className={s.cart_table_td}>Название</td>
-          <td className={s.cart_table_td}>Размер</td>
-          <td className={s.cart_table_td}>Цена</td>
-          <td className={s.cart_table_td}>Удалить</td>
-        </tr>
+        <thead>
+          <tr className={s.table__head}>
+            <td className={s.cart_table_td}>Название</td>
+            <td className={s.cart_table_td}>Размер</td>
+            <td className={s.cart_table_td}>Цена</td>
+            <td className={s.cart_table_td}>Удалить</td>
+          </tr>
+        </thead>
+        <tbody>
         {props.cart.map((item) => (
-          <CartItem item={item} key={item.uniqueId} clearCartItem={props.clearCartItem}/>
+          <CartItem
+            item={item}
+            key={item.uniqueId}
+            clearCartItem={props.clearCartItem}
+          />
         ))}
+        </tbody>
       </table>
       <div className={s.cart__price}>
         <h3>Итоговая стоимость</h3>

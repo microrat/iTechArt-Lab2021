@@ -16,11 +16,13 @@ class App extends React.Component {
     this.addToCart = this.addToCart.bind(this);
   }
   state = {
+    currentUser: {},
     pizzas: [
       {
         id: 1,
         name: "Пеперонни",
-        desc: "Салями пепперони, острый консервированный перец, сыр пармезан, свежая зелень, паприка, твёрдый сыр, мексиканский острый соус, основа для пиццы",
+        desc:
+          "Салями пепперони, острый консервированный перец, сыр пармезан, свежая зелень, паприка, твёрдый сыр, мексиканский острый соус, основа для пиццы",
         size: {
           sm: {
             price: 15,
@@ -36,7 +38,8 @@ class App extends React.Component {
       {
         id: 2,
         name: "Барбекю",
-        desc: "Копчёная грудинка, сыр моцарелла, соус барбекю, репчатый лук, сушёный орегано, твёрдый сыр, томатный соус, основа для пиццы",
+        desc:
+          "Копчёная грудинка, сыр моцарелла, соус барбекю, репчатый лук, сушёный орегано, твёрдый сыр, томатный соус, основа для пиццы",
         size: {
           sm: {
             price: 16,
@@ -57,12 +60,14 @@ class App extends React.Component {
         surname: "Cartman",
         email: "cartman@gmail.com",
         address: "Московский просп., 19, корп. 1",
+        password: "12345",
       },
       {
         name: "Kyle",
         surname: "Broflovski",
         email: "broflovski@gmail.com",
         address: "Московский просп., 19, корп. 1",
+        password: "kyle",
       },
     ],
   };
@@ -109,44 +114,12 @@ class App extends React.Component {
         <Header />
         <Routes>
           <Route path="/" element={<Home pizzas={this.state.pizzas} />} />
-
-          <Route
-            path="/:id"
-            element={
-              <PizzaCard
-                pizzas={this.state.pizzas}
-                cart={this.state.cart}
-                addToCart={this.addToCart}
-              />
-            }
-          />
-          <Route
-            path="/add"
-            element={<AddForm state={this.state} addPizza={this.addPizza} />}
-          />
-          <Route
-            path="/cart"
-            element={
-              <Cart
-                cart={this.state.cart}
-                clearCart={this.clearCart}
-                clearCartItem={this.clearCartItem}
-              />
-            }
-          />
-          <Route
-            path="/users"
-            element={
-              <Users
-                userList={this.state.userList}
-                addUser={this.addUser}
-                deleteUser={this.deleteUser}
-                editUser={this.editUser}
-              />
-            }
-          />
-          <Route path="/login" element={<Login />} />
-          <Route path="/registration" element={<Registration />} />
+          <Route path="/:id" element={ <PizzaCard pizzas={this.state.pizzas} cart={this.state.cart} addToCart={this.addToCart} />} />
+          <Route path="/add" element={<AddForm state={this.state} addPizza={this.addPizza} />} />
+          <Route path="/cart" element={<Cart cart={this.state.cart} clearCart={this.clearCart} clearCartItem={this.clearCartItem}/> } />
+          <Route path="/users" element={ <Users userList={this.state.userList} addUser={this.addUser} deleteUser={this.deleteUser} editUser={this.editUser} /> }/>
+          <Route path="/login" element={ <Login userList={this.state.userList} currentUser={this.state.currentUser} /> }/>
+          <Route path="/registration" element={ <Registration userList={this.state.userList} addUser={this.addUser} /> } />
         </Routes>
       </Router>
     );
