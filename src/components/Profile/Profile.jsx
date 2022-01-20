@@ -13,7 +13,6 @@ class Profile extends React.Component {
      password: this.props.currentUser.password,
     };
     this.handleName = this.handleName.bind(this);
-    this.handleName = this.handleName.bind(this);
     this.handleSurname = this.handleSurname.bind(this);
     this.handleEmail = this.handleEmail.bind(this);
     this.handleAddress = this.handleAddress.bind(this);

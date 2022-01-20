@@ -121,10 +121,16 @@ class App extends React.Component {
     this.setState({ userList: editedUserList });
   };
 
-  render() {
+  isLogin=()=>{
+    if(Object.keys(this.state.currentUser).length === 0)return false;
+    else return true;
+  }
+
+  render() {    
     return (
       <Router>
         <Header />
+        {}
         <Routes>
           <Route path="/" element={<Home pizzas={this.state.pizzas} />} />
           <Route path="/:id" element={ <PizzaCard pizzas={this.state.pizzas} cart={this.state.cart} addToCart={this.addToCart} />} />
