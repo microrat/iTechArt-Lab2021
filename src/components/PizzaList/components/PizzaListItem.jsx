@@ -4,60 +4,68 @@ import React from "react";
 class PizzaListItem extends React.Component {
   constructor(props) {
     super(props);
-    this.state={
-      name: this.props.user.name,
-      surname: this.props.user.surname,
-      email: this.props.user.email,
-      address: this.props.user.address,
-      password: this.props.user.password,
+    this.state = {
+      id:props.pizza.id,
+      name: props.pizza.name,
+      desc: props.pizza.desc,
+      size: {
+        sm: {
+          price: props.pizza.size.sm.price,
+        },
+        md: {
+          price: props.pizza.size.md.price,
+        },
+        lg: {
+          price: props.pizza.size.lg.price,
+        },
+      },
     };
-    this.deleteUser = this.deleteUser.bind(this);
     this.handleName = this.handleName.bind(this);
-    this.handleSurname = this.handleSurname.bind(this);
-    this.handleEmail = this.handleEmail.bind(this);
-    this.handleAddress = this.handleAddress.bind(this);
-    this.handlePassword = this.handlePassword.bind(this);
-    this.editUser = this.editUser.bind(this);
+    this.handleDesc = this.handleDesc.bind(this);
+    this.handleSmallSize = this.handleSmallSize.bind(this);
+    this.handleMediumSize = this.handleMediumSize.bind(this);
+    this.handleLargeSize = this.handleLargeSize.bind(this);
+    this.deletePizza = this.deletePizza.bind(this);
+    this.editPizza = this.editPizza.bind(this);
   }
 
-  editUser(event) {
+  editPizza(event) {
     event.preventDefault();
-    this.props.editUser(this.state,this.props.user);
+    this.props.editPizza(this.state,this.props.pizza);
     alert("Изменено");
   }
 
-  deleteUser(event) {
+  deletePizza(event) {
     event.preventDefault();
-    this.props.deleteUser(this.props.user.email);
+    this.props.deletePizza(this.props.pizza.id);
   }
 
   handleName(event) {
-    this.setState({ name: event.target.value } );
+    this.setState({ name: event.target.value });
   }
-  handleSurname(event) {
-    this.setState({ surname: event.target.value } );
+  handleDesc(event) {
+    this.setState({ desc: event.target.value });
   }
-  handleEmail(event) {
-    this.setState({ email: event.target.value } );
+  handleSmallSize(event) {
+    this.setState( (state)=>(state.size.sm.price= event.target.value ));
   }
-  handleAddress(event) {
-    this.setState({ address: event.target.value } );
+  handleMediumSize(event) {
+    this.setState( (state)=>(state.size.md.price= event.target.value ));
   }
-
-  handlePassword(event) {
-    this.setState({password: event.target.value } );
+  handleLargeSize(event) {
+    this.setState( (state)=>(state.size.lg.price= event.target.value ));
   }
 
   render() {
     return (
-      <form onSubmit={this.editUser} className={s.admin__table__form}>
-       <input type="text" className={s.admin__table__cell_input} value={this.state.name} onChange={this.handleName} />
-        <input type="text" className={s.admin__table__cell_input} value={this.state.surname} onChange={this.handleSurname} />
-        <input type="text" className={s.admin__table__cell_input} value={this.state.email} onChange={this.handleEmail}/>
-        <input type="text" className={`${s.admin__table__cell_input} ${s.address}`} value={this.state.address} onChange={this.handleAddress}/> 
-        <input type="text" className={s.admin__table__cell_input} value={this.state.password} onChange={this.handlePassword}/>  
+      <form onSubmit={this.editPizza} className={s.admin__table__form}>
+      <input type="text" className={s.admin__table__cell_input} value={this.state.name} onChange={this.handleName} />
+        <input type="text" className={s.admin__table__cell_input} value={this.state.desc} onChange={this.handleDesc} />
+        <input type="text" className={s.admin__table__cell_input} value={this.state.size.sm.price} onChange={this.handleSmallSize}/>
+        <input type="text" className={s.admin__table__cell_input} value={this.state.size.md.price} onChange={this.handleMediumSize}/> 
+        <input type="text" className={s.admin__table__cell_input} value={this.state.size.lg.price} onChange={this.handleLargeSize}/>  
           <button type="submit">Изменить</button>
-          <button onClick={this.deleteUser}>Удалить</button>
+          <button onClick={this.deletePizza}>Удалить</button>
         </form>
     );
   }

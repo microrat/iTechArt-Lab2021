@@ -151,7 +151,7 @@ class App extends React.Component {
           <Route path="/add" element={<AddForm state={this.state} addPizza={this.addPizza} />} />
           <Route path="/cart" element={<Cart cart={this.state.cart} clearCart={this.clearCart} clearCartItem={this.clearCartItem}/> } />
           <Route path="/users" element={ <Users userList={this.state.userList} addUser={this.addUser} deleteUser={this.deleteUser} editUser={this.editUser} /> }/>
-          <Route path="/pizzas" element={ <PizzaList pizzas={this.state.pizzas} addPizza={this.addPizza} deletePizza={this.deletePizza} editPizzar={this.editPizza} /> }/>
+          <Route path="/pizzas" element={ <PizzaList pizzas={this.state.pizzas} addPizza={this.addPizza} deletePizza={this.deletePizza} editPizza={this.editPizza} /> }/>
           <Route path="/login" element={ <Login userList={this.state.userList} currentUser={this.state.currentUser}  setCurrentUser={this.setCurrentUser}/> }/>
           <Route path="/registration" element={ <Registration userList={this.state.userList} addUser={this.addUser} /> } />
           <Route path="/profile" element={<Profile currentUser={this.state.currentUser} editUser={this.editUser}/>} />
