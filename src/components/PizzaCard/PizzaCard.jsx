@@ -10,7 +10,9 @@ const PizzaCard = (props) => {
   let addToCart = () => {
     let cartitem = props.pizzas[id];
     cartitem.currentSize = size;
+    console.log(props.cart.length);
     cartitem.uniqueId = props.cart.length + 1;
+    
     console.log(cartitem);
     props.addToCart(cartitem);
     alert("добавлено в корзину");

@@ -11,6 +11,7 @@ import Registration from "./components/Authorization/Registration";
 import Home from "./components/Home/Home";
 import Profile from "./components/Profile/Profile";
 import DeliveryForm from "./components/DeliveryForm/DeliveryForm";
+import PizzaList from "./components/PizzaList/PizzaList";
 
 class App extends React.Component {
   constructor(props) {
@@ -81,12 +82,22 @@ class App extends React.Component {
     cart: [],
   };
 
-  setCurrentUser=(user)=>{
-    this.setState({currentUser:user});
-  }
 
   addPizza = (newPizza) => {
     this.setState((state) => ({ pizzas: [...state.pizzas, newPizza] }));
+  };
+  deletePizza = (pizzaId) => {
+    const reducedPizzaList = this.state.pizzas.filter(
+      (value) => value.id !== pizzaId
+    );
+    this.setState({pizzas: reducedPizzaList });
+  };
+
+  editPizza = (pizza, pizzaOld) => {
+    const editedPizzaList = [...this.state.pizzas];
+    const index = editedPizzaList.indexOf(pizzaOld);
+    editedPizzaList[index] = pizza;
+    this.setState({ pizzas: editedPizzaList });
   };
 
   addToCart = (newItem) => {
@@ -120,6 +131,9 @@ class App extends React.Component {
     editedUserList[index] = user;
     this.setState({ userList: editedUserList });
   };
+  setCurrentUser=(user)=>{
+    this.setState({currentUser:user});
+  }
 
   isLogin=()=>{
     if(Object.keys(this.state.currentUser).length === 0)return false;
@@ -137,6 +151,7 @@ class App extends React.Component {
           <Route path="/add" element={<AddForm state={this.state} addPizza={this.addPizza} />} />
           <Route path="/cart" element={<Cart cart={this.state.cart} clearCart={this.clearCart} clearCartItem={this.clearCartItem}/> } />
           <Route path="/users" element={ <Users userList={this.state.userList} addUser={this.addUser} deleteUser={this.deleteUser} editUser={this.editUser} /> }/>
+          <Route path="/pizzas" element={ <PizzaList pizzas={this.state.pizzas} addPizza={this.addPizza} deletePizza={this.deletePizza} editPizzar={this.editPizza} /> }/>
           <Route path="/login" element={ <Login userList={this.state.userList} currentUser={this.state.currentUser}  setCurrentUser={this.setCurrentUser}/> }/>
           <Route path="/registration" element={ <Registration userList={this.state.userList} addUser={this.addUser} /> } />
           <Route path="/profile" element={<Profile currentUser={this.state.currentUser} editUser={this.editUser}/>} />

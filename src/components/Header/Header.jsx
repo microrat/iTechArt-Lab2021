@@ -23,6 +23,11 @@ const Header = () => {
           </NavLink>
         </li>
         <li className={s.nav__item}>
+          <NavLink className={s.nav__link} to="/pizzas">
+            Пиццы
+          </NavLink>
+        </li>
+        <li className={s.nav__item}>
           <NavLink className={s.nav__link} to="/login">
             Вход
           </NavLink>
