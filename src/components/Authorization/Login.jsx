@@ -27,29 +27,53 @@ class Login extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    if (Object.keys(this.props.currentUser).length === 0) {
-      let user = this.props.userList.find((user) => user.email === this.state.email );
-      if (user.password === this.state.password) {
-        this.props.setCurrentUser(user);
+    if (Object.keys(this.props.currentUser).length === 0){
+      let user = this.props.userList.find( (user) => user.email === this.state.email );
+      console.log(user);
+      if(user !== undefined){
+        if (user.password === this.state.password) {
+          this.props.setCurrentUser(user);
+          alert("OK");
+      }else{
+        alert("Неправлено введен пароль или имейл");
+        return 1;
       }
-      else{alert("Неправлено введен пароль или имейл")}
-    } else {
+    }else{
+      alert("Такого пользователя нет");
+      return 1;
+    }
+  }
+    else{
       alert("Вход уже был выполнен");
     }
-    alert("ОК");
   }
 
   render() {
     return (
       <div className="container">
-        <form className={`${s.form} ${s.form_login}`} onSubmit={this.handleSubmit} >
+        <form
+          className={`${s.form} ${s.form_login}`}
+          onSubmit={this.handleSubmit}
+        >
           <h1>Добро пожаловать!</h1>
           <h3>Введите данные для входа</h3>
           <div className={s.form__input}>
-            <input className={s.form__input__field} type="text" placeholder="Email" onChange={this.handleEmail} value={this.state.email} />
+            <input
+              className={s.form__input__field}
+              type="text"
+              placeholder="Email"
+              onChange={this.handleEmail}
+              value={this.state.email}
+            />
           </div>
           <div className={s.form__input}>
-            <input className={s.form__input__field} type="text" placeholder="Пароль" onChange={this.handlePassword} value={this.state.password} />
+            <input
+              className={s.form__input__field}
+              type="text"
+              placeholder="Пароль"
+              onChange={this.handlePassword}
+              value={this.state.password}
+            />
           </div>
           <button type="submit" className={s.form__button}>
             Войти

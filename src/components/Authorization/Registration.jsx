@@ -50,8 +50,13 @@ class Registration extends React.Component {
       }
     });
     if (allowed === 1) {
+     const regEx= /^([A-Za-z0-9_\-.])+@([A-Za-z0-9_\-.])+\.([A-Za-z]{2,4})$/;
+      if(this.state.email.match(regEx) && this.state.password.length>=8){
       this.props.addUser(this.state);
-      alert("Пользователь добавлен");
+      alert("Пользователь добавлен");}
+      else{
+        alert("Не валидный email или пароль");
+      }
     }
     console.log(this.props.userList);
   }
@@ -98,7 +103,7 @@ class Registration extends React.Component {
             <input
               className={s.form__input__field}
               type="text"
-              placeholder="Пароль"
+              placeholder="Пароль(min 8 symbols)"
               onChange={this.handlePassword}
               value={this.state.password} />
           </div>
