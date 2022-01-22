@@ -12,6 +12,7 @@ import Home from "./components/Home/Home";
 import Profile from "./components/Profile/Profile";
 import DeliveryForm from "./components/DeliveryForm/DeliveryForm";
 import PizzaList from "./components/PizzaList/PizzaList";
+import Footer from "./components/Footer/Footer";
 
 class App extends React.Component {
   constructor(props) {
@@ -212,7 +213,7 @@ class App extends React.Component {
     return (
       <Router>
         <Header />
-        {}
+        
         <Routes>
           <Route path="/" element={<Home pizzas={this.state.pizzas} />} />
           <Route path="/:id" element={ <PizzaCard pizzas={this.state.pizzas} cart={this.state.cart} addToCart={this.addToCart} />} />
@@ -225,7 +226,9 @@ class App extends React.Component {
           <Route path="/profile" element={<Profile currentUser={this.state.currentUser} editUser={this.editUser}/>} />
           <Route path="/delivery" element={<DeliveryForm currentUser={this.state.currentUser} editUser={this.editUser} cart={this.state.cart}/>} />
         </Routes>
+        <Footer/>
       </Router>
+      
     );
   }
 }
