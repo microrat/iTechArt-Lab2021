@@ -81,3 +81,32 @@
     margin-bottom: 40px;
   }
   
+  .page__button{
+    list-style-type:none;
+    background-color:rgb(230, 230, 230);
+    color:black;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 4px;
+    padding:5px;
+cursor:pointer;
+
+  }
+  .page__button:hover{
+    background-color:#fff;
+  }
+  .menu__page__buttons{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom:20px;
+
+  }
+
+  .menu__content{
+    margin-top:-120px;
+  }
