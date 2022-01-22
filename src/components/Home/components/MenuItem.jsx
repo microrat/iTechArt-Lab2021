@@ -6,7 +6,9 @@ const MenuItem = (props) => {
   let link = `${props.pizza.id}`;
   return (
     <div className={s.menu__item}>
+
       <p className={s.menu__title}>{props.pizza.name}</p>
+      <img src={props.pizza.img} className={s.menu__pic} alt="pic" />
       <p className={s.menu__desc}>{props.pizza.desc}</p>
       <NavLink to={link} className="button menu__button">
         Подробнее
@@ -14,5 +16,5 @@ const MenuItem = (props) => {
     </div>
   );
 };
-//<img src={props.img} className={s.menu__pic}></img>
+
 export default MenuItem;

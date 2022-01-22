@@ -9,10 +9,17 @@ class Menu extends React.Component {
     super();
     this.state = {
       currentPage: 1,
-      pizzasPerPage: 3
+      pizzasPerPage: 6,
+      search:""
     };
     this.handleClick = this.handleClick.bind(this);
+    this.handleSearch=this.handleSearch.bind(this);
   }
+
+  handleSearch(event){
+this.setState({search:event.target.value})
+  }
+
 
   handleClick(event) {
     this.setState({
@@ -25,7 +32,7 @@ class Menu extends React.Component {
     const indexOfFirstPizza = indexOfLastPizza - this.state.pizzasPerPage;
     const currentPizzas = this.props.pizzas.slice(indexOfFirstPizza, indexOfLastPizza);
 
-    const renderPizzas = currentPizzas.map((pizza, index) => (<MenuItem key={index} pizza={pizza} />));
+   
 
     const pageNumbers = [];
     for (let i = 1; i <= Math.ceil(this.props.pizzas.length / this.state.pizzasPerPage); i++) {
@@ -40,21 +47,32 @@ class Menu extends React.Component {
     
       );
     });
+    
+const filteredPizzas=currentPizzas.filter(pizza=>{return pizza.name.toLowerCase().includes(this.state.search.toLowerCase())});
+const renderPizzas = filteredPizzas.map((pizza, index) => (<MenuItem key={index} pizza={pizza} />));
 
     return (
       <div className={s.menu__content}>
         <section className={s.slogan}>
           <h1 className={s.slogan__title_3}>Наше меню</h1>
         </section>
+       
         <div className={s.menu}>
           {renderPizzas}
-  
         </div>
         <div className={s.menu__page__buttons}>
         <ButtonGroup>
           {renderPageNumbers}
           </ButtonGroup>
           </div>
+          <div className="container">
+          <form className={s.search__form}>
+            <label className={s.search__label}>Поиск</label>
+            <input type="text" placeholder="поиск..." onChange={this.handleSearch}></input>
+          </form>
+         
+        </div>
+        
       </div>
     );
   }

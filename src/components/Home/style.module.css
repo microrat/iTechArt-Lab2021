@@ -110,3 +110,12 @@ cursor:pointer;
   .menu__content{
     margin-top:-120px;
   }
+
+  .search__form{
+    padding:15px;
+    background-color:rgba(0, 0, 0, 0.747);
+    border-radius:10px;
+  }
+  .search__label{
+    margin-right: 10px;;
+  }

@@ -10,7 +10,7 @@ class Footer extends React.Component {
   render() {
     return (
       <Box bgcolor="text.primary" mt={15}>
-        <Container maxWodth="lg">
+        <Container maxWidth="lg">
           <Grid container spacing={5}>
             <Grid item xs={12} sm={4} >
               <Box borderBottom={1} sx={{fontWeight: 'bold'}} >Company</Box>

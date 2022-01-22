@@ -25,7 +25,9 @@ const PizzaCard = (props) => {
   return (
     <div className={s.card}>
       <div className={s.card__content}>
-        <div className={s.card__item}></div>
+        <div className={s.card__item}>
+        <img className={s.card__pic} src={props.pizzas[id].img} alt="pic" />
+        </div>
         <div className={s.card__item}>
           <h1 className={s.item__title}>{props.pizzas[id].name}</h1>
           <p className={s.item__descreption}>{props.pizzas[id].desc}</p>
