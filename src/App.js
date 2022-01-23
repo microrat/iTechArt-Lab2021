@@ -1,13 +1,15 @@
 import "./App.css";
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-class App extends React.Component {
 
-  render() {    
-    return (
-     <div>hi</div>
-    );
-  }
+
+function App() {
+ 
+
+  return (
+  
+  );
 }
 
 export default App;
