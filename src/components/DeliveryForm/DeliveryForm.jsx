@@ -57,7 +57,6 @@ alert("OK");
               <td className={s.delivery__form__table__item}>Название</td>
               <td className={s.delivery__form__table__item}>Размер</td>
               <td className={s.delivery__form__table__item}>Цена</td>
-              <td className={s.delivery__form__table__item}>Действия</td>
             </thead>
             <tbody>
               {this.props.cart.map((item) => (

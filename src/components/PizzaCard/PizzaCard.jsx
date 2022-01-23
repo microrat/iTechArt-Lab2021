@@ -1,15 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import s from "./style.module.css";
 
 const PizzaCard = (props) => {
+  const[state,setState]=useState({size:""});
   let idParam = useParams();
   let id = idParam.id - 1;
-  let size = "";
 
   let addToCart = () => {
-    let cartitem = props.pizzas[id];
-    cartitem.currentSize = size;
+    let cartitem = {...props.pizzas[id]};
+    if(state.size===""){
+      alert("Выберете размер");
+      return 1;
+    }
+    cartitem.currentSize = state.size;
+    if(state.size==="sm")cartitem.currentPrice=props.pizzas[id].size.sm.price;
+    else if(state.size==="md")cartitem.currentPrice=props.pizzas[id].size.md.price;
+    else cartitem.currentPrice=props.pizzas[id].size.lg.price;
     console.log(props.cart.length);
     cartitem.uniqueId = props.cart.length + 1;
     
@@ -18,8 +25,8 @@ const PizzaCard = (props) => {
     alert("добавлено в корзину");
   };
 
-  const handleChange = (e) => {
-    size = e.target.value;
+  const handleChange = (event) => {
+    setState({size:event.target.value})
   };
 
   return (
@@ -46,6 +53,7 @@ const PizzaCard = (props) => {
               id="md"
               onChange={handleChange}
               name="size"
+              
             />
             <label>Средняя - {props.pizzas[id].size.md.price} руб.</label>
             <input
