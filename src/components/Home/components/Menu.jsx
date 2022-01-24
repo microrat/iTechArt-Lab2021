@@ -3,6 +3,7 @@ import MenuItem from "./MenuItem.jsx";
 import s from "../style.module.css";
 
 import { ButtonGroup} from '@material-ui/core/';
+import RenderPizzas from "./RenderPizzas.jsx";
 
 class Menu extends React.Component {
   constructor() {
@@ -30,10 +31,13 @@ this.setState({search:event.target.value})
   render() {
     const indexOfLastPizza = this.state.currentPage * this.state.pizzasPerPage;
     const indexOfFirstPizza = indexOfLastPizza - this.state.pizzasPerPage;
-    const currentPizzas = this.props.pizzas.slice(indexOfFirstPizza, indexOfLastPizza);
+    
 
-   
-
+    const filteredPizzas=this.props.pizzas.filter(pizza=>{return pizza.name.toLowerCase().includes(this.state.search.toLowerCase())});
+    
+    const currentPizzas = filteredPizzas.slice(indexOfFirstPizza, indexOfLastPizza);
+    //const renderPizzas = ;
+    
     const pageNumbers = [];
     for (let i = 1; i <= Math.ceil(this.props.pizzas.length / this.state.pizzasPerPage); i++) {
       pageNumbers.push(i);
@@ -48,8 +52,6 @@ this.setState({search:event.target.value})
       );
     });
     
-const filteredPizzas=currentPizzas.filter(pizza=>{return pizza.name.toLowerCase().includes(this.state.search.toLowerCase())});
-const renderPizzas = filteredPizzas.map((pizza, index) => (<MenuItem key={index} pizza={pizza} />));
 
     return (
       <div className={s.menu__content}>
@@ -58,7 +60,7 @@ const renderPizzas = filteredPizzas.map((pizza, index) => (<MenuItem key={index}
         </section>
        
         <div className={s.menu}>
-          {renderPizzas}
+        {currentPizzas.map((pizza, index) => (<MenuItem key={index} pizza={pizza} />))}
         </div>
         <div className={s.menu__page__buttons}>
         <ButtonGroup>

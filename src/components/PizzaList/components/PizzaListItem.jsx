@@ -64,6 +64,7 @@ class PizzaListItem extends React.Component {
         <input type="text" className={s.admin__table__cell_input} value={this.state.size.sm.price} onChange={this.handleSmallSize}/>
         <input type="text" className={s.admin__table__cell_input} value={this.state.size.md.price} onChange={this.handleMediumSize}/> 
         <input type="text" className={s.admin__table__cell_input} value={this.state.size.lg.price} onChange={this.handleLargeSize}/>  
+        
           <button type="submit">Изменить</button>
           <button onClick={this.deletePizza}>Удалить</button>
         </form>
