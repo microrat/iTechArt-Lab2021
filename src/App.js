@@ -1,18 +1,17 @@
-import "./App.css";
-import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
-import React from "react";
-import Header from "./components/Header/Header.jsx";
-import PizzaCard from "./components/PizzaCard/PizzaCard.jsx";
-import AddForm from "./components/AddForm/AddForm.jsx";
-import Cart from "./components/Cart/Cart.jsx";
-import Users from "./components/Users/Users.jsx";
-import Login from "./components/Authorization/Login";
-import Registration from "./components/Authorization/Registration";
-import Home from "./components/Home/Home";
-import Profile from "./components/Profile/Profile";
-import DeliveryForm from "./components/DeliveryForm/DeliveryForm";
-import PizzaList from "./components/PizzaList/PizzaList";
-import Footer from "./components/Footer/Footer";
+import './App.css';
+import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
+import React from 'react';
+import Header from './components/Header/Header';
+import PizzaCard from './components/PizzaCard/PizzaCard';
+import Cart from './components/Cart/Cart';
+import Users from './components/Users/Users';
+import Login from './components/Authorization/Login';
+import Registration from './components/Authorization/Registration';
+import Home from './components/Home/Home';
+import Profile from './components/Profile/Profile';
+import DeliveryForm from './components/DeliveryForm/DeliveryForm';
+import PizzaList from './components/PizzaList/PizzaList';
+import Footer from './components/Footer/Footer';
 
 class App extends React.Component {
   constructor(props) {
@@ -21,9 +20,9 @@ class App extends React.Component {
       pizzas: [
         {
           id: 1,
-          img: "https://raw.githubusercontent.com/microrat/iTechArt-Lab2021/main/src/assets/img/pic1.jpg",
-          name: "Пеперонни",
-          desc: "Салями пепперони, острый консервированный перец, сыр пармезан, свежая зелень, паприка, твёрдый сыр, мексиканский острый соус, основа для пиццы",
+          img: 'https://raw.githubusercontent.com/microrat/iTechArt-Lab2021/main/src/assets/img/pic1.jpg',
+          name: 'Пеперонни',
+          desc: 'Салями пепперони, острый консервированный перец, сыр пармезан, свежая зелень, паприка, твёрдый сыр, мексиканский острый соус, основа для пиццы',
           size: {
             sm: {
               price: 15,
@@ -38,9 +37,9 @@ class App extends React.Component {
         },
         {
           id: 2,
-          img: "https://raw.githubusercontent.com/microrat/iTechArt-Lab2021/main/src/assets/img/pic2.jpg",
-          name: "Барбекю",
-          desc: "Копчёная грудинка, сыр моцарелла, соус барбекю, репчатый лук, сушёный орегано, твёрдый сыр, томатный соус, основа для пиццы",
+          img: 'https://raw.githubusercontent.com/microrat/iTechArt-Lab2021/main/src/assets/img/pic2.jpg',
+          name: 'Барбекю',
+          desc: 'Копчёная грудинка, сыр моцарелла, соус барбекю, репчатый лук, сушёный орегано, твёрдый сыр, томатный соус, основа для пиццы',
           size: {
             sm: {
               price: 16,
@@ -55,9 +54,9 @@ class App extends React.Component {
         },
         {
           id: 3,
-          img: "https://raw.githubusercontent.com/microrat/iTechArt-Lab2021/main/src/assets/img/pic3.jpg",
-          name: "Морская",
-          desc: "Копчёная грудинка, сыр моцарелла, соус барбекю, репчатый лук, сушёный орегано, твёрдый сыр, томатный соус, основа для пиццы",
+          img: 'https://raw.githubusercontent.com/microrat/iTechArt-Lab2021/main/src/assets/img/pic3.jpg',
+          name: 'Морская',
+          desc: 'Копчёная грудинка, сыр моцарелла, соус барбекю, репчатый лук, сушёный орегано, твёрдый сыр, томатный соус, основа для пиццы',
           size: {
             sm: {
               price: 16,
@@ -72,9 +71,9 @@ class App extends React.Component {
         },
         {
           id: 4,
-          img: "https://raw.githubusercontent.com/microrat/iTechArt-Lab2021/main/src/assets/img/pic4.jpg",
-          name: "Ананасовая",
-          desc: "Копчёная грудинка, сыр моцарелла, соус барбекю, репчатый лук, сушёный орегано, твёрдый сыр, томатный соус, основа для пиццы",
+          img: 'https://raw.githubusercontent.com/microrat/iTechArt-Lab2021/main/src/assets/img/pic4.jpg',
+          name: 'Ананасовая',
+          desc: 'Копчёная грудинка, сыр моцарелла, соус барбекю, репчатый лук, сушёный орегано, твёрдый сыр, томатный соус, основа для пиццы',
           size: {
             sm: {
               price: 16,
@@ -89,9 +88,9 @@ class App extends React.Component {
         },
         {
           id: 5,
-          img: "https://raw.githubusercontent.com/microrat/iTechArt-Lab2021/main/src/assets/img/pic5.jpg",
-          name: "Мясная",
-          desc: "Копчёная грудинка, сыр моцарелла, соус барбекю, репчатый лук, сушёный орегано, твёрдый сыр, томатный соус, основа для пиццы",
+          img: 'https://raw.githubusercontent.com/microrat/iTechArt-Lab2021/main/src/assets/img/pic5.jpg',
+          name: 'Мясная',
+          desc: 'Копчёная грудинка, сыр моцарелла, соус барбекю, репчатый лук, сушёный орегано, твёрдый сыр, томатный соус, основа для пиццы',
           size: {
             sm: {
               price: 16,
@@ -106,9 +105,9 @@ class App extends React.Component {
         },
         {
           id: 6,
-          img: "https://raw.githubusercontent.com/microrat/iTechArt-Lab2021/main/src/assets/img/pic6.jpg",
-          name: "Грибная",
-          desc: "Копчёная грудинка, сыр моцарелла, соус барбекю, репчатый лук, сушёный орегано, твёрдый сыр, томатный соус, основа для пиццы",
+          img: 'https://raw.githubusercontent.com/microrat/iTechArt-Lab2021/main/src/assets/img/pic6.jpg',
+          name: 'Грибная',
+          desc: 'Копчёная грудинка, сыр моцарелла, соус барбекю, репчатый лук, сушёный орегано, твёрдый сыр, томатный соус, основа для пиццы',
           size: {
             sm: {
               price: 16,
@@ -123,9 +122,9 @@ class App extends React.Component {
         },
         {
           id: 7,
-          img: "https://raw.githubusercontent.com/microrat/iTechArt-Lab2021/main/src/assets/img/pic7.jpg",
-          name: "Грибная",
-          desc: "Копчёная грудинка, сыр моцарелла, соус барбекю, репчатый лук, сушёный орегано, твёрдый сыр, томатный соус, основа для пиццы",
+          img: 'https://raw.githubusercontent.com/microrat/iTechArt-Lab2021/main/src/assets/img/pic7.jpg',
+          name: 'Грибная',
+          desc: 'Копчёная грудинка, сыр моцарелла, соус барбекю, репчатый лук, сушёный орегано, твёрдый сыр, томатный соус, основа для пиццы',
           size: {
             sm: {
               price: 16,
@@ -140,9 +139,9 @@ class App extends React.Component {
         },
         {
           id: 8,
-          img: "https://raw.githubusercontent.com/microrat/iTechArt-Lab2021/main/src/assets/img/pic8.jpg",
-          name: "Грибная",
-          desc: "Копчёная грудинка, сыр моцарелла, соус барбекю, репчатый лук, сушёный орегано, твёрдый сыр, томатный соус, основа для пиццы",
+          img: 'https://raw.githubusercontent.com/microrat/iTechArt-Lab2021/main/src/assets/img/pic8.jpg',
+          name: 'Грибная',
+          desc: 'Копчёная грудинка, сыр моцарелла, соус барбекю, репчатый лук, сушёный орегано, твёрдый сыр, томатный соус, основа для пиццы',
           size: {
             sm: {
               price: 16,
@@ -158,25 +157,25 @@ class App extends React.Component {
       ],
       userList: [
         {
-          name: "Eric",
-          surname: "Cartman",
-          email: "cartman@gmail.com",
-          address: "Московский просп., 19, корп. 1",
-          password: "12345",
+          name: 'Eric',
+          surname: 'Cartman',
+          email: 'cartman@gmail.com',
+          address: 'Московский просп., 19, корп. 1',
+          password: '12345',
         },
         {
-          name: "Kyle",
-          surname: "Broflovski",
-          email: "broflovski@gmail.com",
-          address: "Московский просп., 19, корп. 1",
-          password: "kyle",
+          name: 'Kyle',
+          surname: 'Broflovski',
+          email: 'broflovski@gmail.com',
+          address: 'Московский просп., 19, корп. 1',
+          password: 'kyle',
         },
         {
-          name: "TAEST",
-          surname: "USER",
-          email: "1",
-          address: "ADR",
-          password: "1",
+          name: 'TAEST',
+          surname: 'USER',
+          email: '1',
+          address: 'ADR',
+          password: '1',
         },
       ],
       currentUser: {},
@@ -184,22 +183,24 @@ class App extends React.Component {
     };
   }
 
-  addPizza = (newPizza) => {
+  addPizza = newPizza => {
     this.setState(state => ({ pizzas: [...state.pizzas, newPizza] }));
   };
 
   deletePizza = pizzaId => {
-    const reducedPizzaList = this.state.pizzas.filter(
-      value => value.id !== pizzaId
-    );
-    this.setState({ pizzas: reducedPizzaList });
+    this.setState(oldState => {
+      const reducedPizzaList = oldState.pizzas.filter(value => value.id !== pizzaId);
+      return { pizzas: reducedPizzaList };
+    });
   };
 
   editPizza = (pizza, pizzaOld) => {
-    const editedPizzaList = [...this.state.pizzas];
-    const index = editedPizzaList.indexOf(pizzaOld);
-    editedPizzaList[index] = pizza;
-    this.setState({ pizzas: editedPizzaList });
+    this.setState(oldState => {
+      const editedPizzaList = [...oldState.pizzas];
+      const index = editedPizzaList.indexOf(pizzaOld);
+      editedPizzaList[index] = pizza;
+      return { pizzas: editedPizzaList };
+    });
   };
 
   addToCart = newItem => {
@@ -207,20 +208,22 @@ class App extends React.Component {
   };
 
   clearCart = () => {
-    this.setState(state => ({ cart: [] }));
+    this.setState(() => ({ cart: [] }));
   };
 
   clearCartItem = itemId => {
-    const reducedCart = [...this.state.cart];
-    reducedCart.splice(itemId, 1);
-    this.setState({ cart: reducedCart });
+    this.setState(oldState => {
+      const reducedCart = [...oldState.cart];
+      reducedCart.splice(itemId, 1);
+      return { cart: reducedCart };
+    });
   };
 
   deleteUser = userEmail => {
-    const reducedUserList = this.state.userList.filter(
-      value => value.email !== userEmail
-    );
-    this.setState({ userList: reducedUserList });
+    this.setState(oldState => {
+      const reducedUserList = oldState.userList.filter(value => value.email !== userEmail);
+      return { userList: reducedUserList };
+    });
   };
 
   addUser = newUser => {
@@ -228,10 +231,12 @@ class App extends React.Component {
   };
 
   editUser = (user, userOld) => {
-    const editedUserList = [...this.state.userList];
-    const index = editedUserList.indexOf(userOld);
-    editedUserList[index] = user;
-    this.setState({ userList: editedUserList });
+    this.setState(oldState => {
+      const editedUserList = [...oldState.userList];
+      const index = editedUserList.indexOf(userOld);
+      editedUserList[index] = user;
+      return { userList: editedUserList };
+    });
   };
 
   setCurrentUser = user => {
@@ -259,10 +264,6 @@ class App extends React.Component {
                 addToCart={this.addToCart}
               />
             }
-          />
-          <Route
-            path="/add"
-            element={<AddForm state={this.state} addPizza={this.addPizza} />}
           />
           <Route
             path="/cart"
@@ -308,21 +309,11 @@ class App extends React.Component {
           />
           <Route
             path="/registration"
-            element={
-              <Registration
-                userList={this.state.userList}
-                addUser={this.addUser}
-              />
-            }
+            element={<Registration userList={this.state.userList} addUser={this.addUser} />}
           />
           <Route
             path="/profile"
-            element={
-              <Profile
-                currentUser={this.state.currentUser}
-                editUser={this.editUser}
-              />
-            }
+            element={<Profile currentUser={this.state.currentUser} editUser={this.editUser} />}
           />
           <Route
             path="/delivery"

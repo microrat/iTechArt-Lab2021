@@ -1,16 +1,16 @@
-import s from "./style.module.css";
-import React from "react";
-
+import PropTypes from 'prop-types';
+import React from 'react';
+import s from './style.module.css';
 
 class Profile extends React.Component {
   constructor(props) {
     super(props);
-    this.state={
+    this.state = {
       name: this.props.currentUser.name,
       surname: this.props.currentUser.surname,
       email: this.props.currentUser.email,
       address: this.props.currentUser.address,
-     password: this.props.currentUser.password,
+      password: this.props.currentUser.password,
     };
     this.handleName = this.handleName.bind(this);
     this.handleSurname = this.handleSurname.bind(this);
@@ -21,48 +21,84 @@ class Profile extends React.Component {
   }
 
   handleName(event) {
-    this.setState({ name: event.target.value } );
+    this.setState({ name: event.target.value });
   }
+
   handleSurname(event) {
-    this.setState({ surname: event.target.value } );
+    this.setState({ surname: event.target.value });
   }
+
   handleEmail(event) {
-    this.setState({ email: event.target.value } );
+    this.setState({ email: event.target.value });
   }
+
   handleAddress(event) {
-    this.setState({ address: event.target.value } );
+    this.setState({ address: event.target.value });
   }
+
   handlePassword(event) {
-    this.setState({password: event.target.value } );
+    this.setState({ password: event.target.value });
   }
-  
+
   editUser(event) {
     event.preventDefault();
-    this.props.editUser(this.state,this.props.currentUser);
-    alert("Изменено");
+    this.props.editUser(this.state, this.props.currentUser);
+    alert('Изменено');
   }
 
   render() {
     return (
       <div className="container">
-      <div className={s.profile__container}>
-      <form onSubmit={this.editUser} className={s.profile_form}>
-        <label>Имя </label>
-      <input type="text" className={s.profile__field} value={this.state.name} onChange={this.handleName} />
-      <label>Фамилия </label>
-       <input type="text" className={s.profile__field} value={this.state.surname} onChange={this.handleSurname} />
-       <label>Email</label>
-       <input type="text" className={s.profile__field} value={this.state.email} onChange={this.handleEmail}/>
-       <label>Адрес</label>
-       <input type="text" className={s.profile__field} value={this.state.address} onChange={this.handleAddress}/>   
-       <label>Пароль</label>
-       <input type="text" className={s.profile__field} value={this.state.password} onChange={this.handlePassword}/>   
-         <button type="submit" className="button add_button">Изменить</button>
-       </form>
-       </div>
-       </div>
+        <div className={s.profile__container}>
+          <form onSubmit={this.editUser} className={s.profile_form}>
+            <label htmlFor="name">Имя </label>
+            <input
+              type="text"
+              className={s.profile__field}
+              value={this.state.name}
+              onChange={this.handleName}
+            />
+            <label htmlFor="surname">Фамилия </label>
+            <input
+              type="text"
+              className={s.profile__field}
+              value={this.state.surname}
+              onChange={this.handleSurname}
+            />
+            <label htmlFor="email">Email</label>
+            <input
+              type="text"
+              className={s.profile__field}
+              value={this.state.email}
+              onChange={this.handleEmail}
+            />
+            <label htmlFor="address">Адрес</label>
+            <input
+              type="text"
+              className={s.profile__field}
+              value={this.state.address}
+              onChange={this.handleAddress}
+            />
+            <label htmlFor="password">Пароль</label>
+            <input
+              type="text"
+              className={s.profile__field}
+              value={this.state.password}
+              onChange={this.handlePassword}
+            />
+            <button type="submit" className="button add_button">
+              Изменить
+            </button>
+          </form>
+        </div>
+      </div>
     );
   }
 }
 
 export default Profile;
+
+Profile.propTypes = {
+  currentUser: PropTypes.object.isRequired,
+  editUser: PropTypes.func.isRequired,
+};

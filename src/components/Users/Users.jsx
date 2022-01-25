@@ -1,16 +1,17 @@
-import s from "./style.module.css";
-import React from "react";
-import UserListItem from "./components/UserListItem";
+import PropTypes from 'prop-types';
+import React from 'react';
+import s from './style.module.css';
+import UserListItem from './components/UserListItem';
 
 class Users extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
-      surname: "",
-      email: "",
-      address: "",
-      password: "",
+      name: '',
+      surname: '',
+      email: '',
+      address: '',
+      password: '',
     };
 
     this.handleName = this.handleName.bind(this);
@@ -24,36 +25,40 @@ class Users extends React.Component {
   handleName(event) {
     this.setState({ name: event.target.value });
   }
+
   handleSurname(event) {
     this.setState({ surname: event.target.value });
   }
+
   handleEmail(event) {
     this.setState({ email: event.target.value });
   }
+
   handleAddress(event) {
     this.setState({ address: event.target.value });
   }
 
   handlePassword(event) {
-    this.setState({password: event.target.value } );
+    this.setState({ password: event.target.value });
   }
 
   handleSubmit(event) {
     event.preventDefault();
     this.props.addUser(this.state);
-    alert("Пользователь добавлен");
+    alert('Пользователь добавлен');
   }
 
   render() {
     return (
       <div className="container">
         <div className={s.admin__container}>
-          {this.props.userList.map((user) => (
+          {this.props.userList.map(user => (
             <UserListItem
               key={user.email}
               user={user}
               deleteUser={this.props.deleteUser}
-              editUser={this.props.editUser} />
+              editUser={this.props.editUser}
+            />
           ))}
           <form onSubmit={this.handleSubmit}>
             <label>
@@ -62,7 +67,8 @@ class Users extends React.Component {
                 type="text"
                 className={s.admin__table__form_input}
                 onChange={this.handleName}
-                value={this.state.name} />
+                value={this.state.name}
+              />
             </label>
             <label>
               фамилия:
@@ -70,7 +76,8 @@ class Users extends React.Component {
                 type="text"
                 className={s.admin__table__form_input}
                 onChange={this.handleSurname}
-                value={this.state.surname} />
+                value={this.state.surname}
+              />
             </label>
             <label>
               email:
@@ -78,7 +85,8 @@ class Users extends React.Component {
                 type="text"
                 className={s.admin__table__form_input}
                 onChange={this.handleEmail}
-                value={this.state.email} />
+                value={this.state.email}
+              />
             </label>
             <label>
               адрес:
@@ -86,15 +94,17 @@ class Users extends React.Component {
                 type="text"
                 className={s.admin__table__form_input}
                 onChange={this.handleAddress}
-                value={this.state.address} />
+                value={this.state.address}
+              />
             </label>
             <label>
-             пароль:
+              пароль:
               <input
                 type="text"
                 className={s.admin__table__form_input}
                 onChange={this.handlePassword}
-                value={this.state.password} />
+                value={this.state.password}
+              />
             </label>
             <input type="submit" value="Добавить" />
           </form>
@@ -105,3 +115,10 @@ class Users extends React.Component {
 }
 
 export default Users;
+
+Users.propTypes = {
+  userList: PropTypes.array.isRequired,
+  editUser: PropTypes.func.isRequired,
+  deleteUser: PropTypes.func.isRequired,
+  addUser: PropTypes.func.isRequired,
+};

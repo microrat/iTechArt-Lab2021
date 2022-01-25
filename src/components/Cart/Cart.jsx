@@ -1,9 +1,10 @@
-import s from "./style.module.css";
-import CartItem from "./components/CartItem.jsx";
-import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import s from './style.module.css';
+import CartItem from './components/CartItem';
 
-const Cart = (props) => {
-  let clearCart = () => {
+const Cart = props => {
+  const clearCart = () => {
     console.log(props.cart);
     props.clearCart();
   };
@@ -19,25 +20,29 @@ const Cart = (props) => {
           </tr>
         </thead>
         <tbody>
-        {props.cart.map((item) => (
-          <CartItem
-            item={item}
-            key={item.uniqueId}
-            clearCartItem={props.clearCartItem}
-          />
-        ))}
+          {props.cart.map(item => (
+            <CartItem item={item} key={item.uniqueId} clearCartItem={props.clearCartItem} />
+          ))}
         </tbody>
       </table>
       <div className={s.cart__price}>
         <h3>Итоговая стоимость</h3>
         <h2>руб.</h2>
       </div>
-      <button className="add_button" onClick={clearCart}>
+      <button type="button" className="add_button" onClick={clearCart}>
         Очистить корзину
       </button>
-     <Link to="/delivery" className="add_button delivery_button">Оформить заказ</Link>
+      <Link to="/delivery" className="add_button delivery_button">
+        Оформить заказ
+      </Link>
     </div>
   );
 };
 
 export default Cart;
+
+Cart.propTypes = {
+  cart: PropTypes.array.isRequired,
+  clearCart: PropTypes.func.isRequired,
+  clearCartItem: PropTypes.func.isRequired,
+};

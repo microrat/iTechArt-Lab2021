@@ -29,10 +29,12 @@
   padding: 10px;
   min-height: 430px;
 }
+
 .card__price {
   margin-top: 30px;
   margin-top: 30px;
 }
+
 .card__button {
   border: none;
   padding: 10px 42px;
@@ -53,7 +55,6 @@
   font-size: 140%;
   margin-top: 6px;
 }
-
 
 .item__descreption {
   margin-top: 10px;

@@ -4,7 +4,7 @@
   padding: 15px;
 }
 
-.profile_form{
+.profile_form {
   display: flex;
   flex-direction: column;
   width: 400px;

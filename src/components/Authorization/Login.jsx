@@ -1,17 +1,12 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import s from "./style.module.css";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import s from './style.module.css';
 
 class Login extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      name: "",
-      surname: "",
-      email: "",
-      address: "",
-      password: "",
-    };
+    this.state = {};
     this.handleEmail = this.handleEmail.bind(this);
     this.handlePassword = this.handlePassword.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -27,34 +22,31 @@ class Login extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    if (Object.keys(this.props.currentUser).length === 0){
-      let user = this.props.userList.find( (user) => user.email === this.state.email );
+    if (Object.keys(this.props.currentUser).length === 0) {
+      const user = this.props.userList.find(item => item.email === this.state.email);
       console.log(user);
-      if(user !== undefined){
+      if (user !== undefined) {
         if (user.password === this.state.password) {
           this.props.setCurrentUser(user);
-          alert("OK");
-      }else{
-        alert("Неправлено введен пароль или имейл");
+          alert('OK');
+        } else {
+          alert('Неправлено введен пароль или имейл');
+          return 1;
+        }
+      } else {
+        alert('Такого пользователя нет');
         return 1;
       }
-    }else{
-      alert("Такого пользователя нет");
-      return 1;
+    } else {
+      alert('Вход уже был выполнен');
     }
-  }
-    else{
-      alert("Вход уже был выполнен");
-    }
+    return 0;
   }
 
   render() {
     return (
       <div className="container">
-        <form
-          className={`${s.form} ${s.form_login}`}
-          onSubmit={this.handleSubmit}
-        >
+        <form className={`${s.form} ${s.form_login}`} onSubmit={this.handleSubmit}>
           <h1>Добро пожаловать!</h1>
           <h3>Введите данные для входа</h3>
           <div className={s.form__input}>
@@ -89,3 +81,9 @@ class Login extends React.Component {
 }
 
 export default Login;
+
+Login.propTypes = {
+  userList: PropTypes.array.isRequired,
+  currentUser: PropTypes.object.isRequired,
+  setCurrentUser: PropTypes.func.isRequired,
+};

@@ -1,6 +1,7 @@
-import React from "react";
-import HeaderPic from "./components/HeaderPic";
-import Menu from "./components/Menu";
+import PropTypes from 'prop-types';
+import React from 'react';
+import HeaderPic from './components/HeaderPic';
+import Menu from './components/Menu';
 
 class Home extends React.Component {
   render() {
@@ -14,3 +15,7 @@ class Home extends React.Component {
 }
 
 export default Home;
+
+Home.propTypes = {
+  pizzas: PropTypes.array.isRequired,
+};

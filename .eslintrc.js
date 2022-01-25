@@ -4,7 +4,7 @@ module.exports = {
     es2021: true,
     jest: true,
   },
-  extends: ['airbnb', 'airbnb/hooks', 'prettier'],
+  extends: ['airbnb', 'airbnb/hooks', 'plugin:prettier/recommended', 'prettier/prettier'],
   parser: 'babel-eslint',
   parserOptions: {
     ecmaFeatures: {
@@ -39,7 +39,7 @@ module.exports = {
         functions: 'ignore',
       },
     ],
-    'arrow-parens': ['error', 'as-needed'],
+    'arrow-parens': 'off',
     'linebreak-style': 'off',
     'react/jsx-one-expression-per-line': 'off',
     'react/destructuring-assignment': 'off',
