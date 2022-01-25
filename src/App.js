@@ -251,7 +251,7 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        <Header />
+        <Header currentUser={this.currentUser} />
 
         <Routes>
           <Route path="/" element={<Home pizzas={this.state.pizzas} />} />

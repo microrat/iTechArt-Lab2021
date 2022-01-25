@@ -1,5 +1,3 @@
-/* eslint-disable no-param-reassign */
-/* eslint-disable no-return-assign */
 import PropTypes from 'prop-types';
 import React from 'react';
 import s from './style.module.css';
@@ -42,15 +40,24 @@ class PizzaList extends React.Component {
   }
 
   handleSmallSize(event) {
-    this.setState(state => (state.size.sm.price = event.target.value));
+    this.setState(() => {
+      const smPrice = event.target.value;
+      return { sm: { price: smPrice } };
+    });
   }
 
   handleMediumSize(event) {
-    this.setState(state => (state.size.md.price = event.target.value));
+    this.setState(() => {
+      const mdPrice = event.target.value;
+      return { md: { price: mdPrice } };
+    });
   }
 
   handleLargeSize(event) {
-    this.setState(state => (state.size.lg.price = event.target.value));
+    this.setState(() => {
+      const lgPrice = event.target.value;
+      return { lg: { price: lgPrice } };
+    });
   }
 
   handleSubmit(event) {
